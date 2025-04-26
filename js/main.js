@@ -39,6 +39,11 @@ function renderCardsFromResponse(repositories) {
 }
 
 async function fetchGitHubRepositories(query) {
+    if (!query) {
+        const autocompleteResults = document.querySelector('.autocomplete')
+        autocompleteResults.style.display = 'none';
+        return [];
+    }
     try {
         const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=5`)
         const data = await response.json();
