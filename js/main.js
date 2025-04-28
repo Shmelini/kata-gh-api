@@ -91,6 +91,16 @@ const renderAutocomplete = (repositories) => {
 const handleInput = debounce(async (event) => {
     const query = event.target.value.trim();
     const repositories = await fetchGitHubRepositories(query);
+
+    const noReposWarning = document.querySelector('.warning')
+
+    if (repositories.length === 0 && query) {
+        noReposWarning.classList.remove('hidden')
+    }
+    else {
+        noReposWarning.classList.add('hidden')
+    }
+
     renderAutocomplete(repositories);
 }, 400);
 
