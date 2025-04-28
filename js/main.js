@@ -41,7 +41,7 @@ async function fetchGitHubRepositories(query) {
     try {
         const headers = new Headers({
             'User-Agent': 'Kata-github-api/1.0.0',
-            'Authorization': `token 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`
+            'Authorization': `token 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`
         });
         const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=5`, { headers })
         const data = await response.json();
