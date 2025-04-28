@@ -32,12 +32,6 @@ function renderCard(name, owner, stars) {
     textContainer.append(nameDiv, ownerDiv, starsDiv)
 }
 
-function renderCardsFromResponse(repositories) {
-    repositories.forEach((repository) => {
-        renderCard(repository.name, repository.owner.login, repository.stargazers_count)
-    })
-}
-
 async function fetchGitHubRepositories(query) {
     if (!query) {
         const autocompleteResults = document.querySelector('.autocomplete')
