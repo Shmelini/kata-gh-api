@@ -40,7 +40,7 @@ async function fetchGitHubRepositories(query) {
     }
     try {
         const headers = new Headers({
-            'User-Agent': 'Kata-github-api/1.0.0 (arhipilagys@gmail.com)',
+            'User-Agent': 'Kata-github-api/1.0.0',
             'Authorization': `token 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`
         });
         const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&per_page=5`, { headers })
